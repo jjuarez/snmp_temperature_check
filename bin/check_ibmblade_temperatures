@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+$:.unshift(File.join(File.dirname(__FILE__), %w{.. lib}))
+
+require 'snmp_check'
+
+tr = SNMPCheck::TemperaturePlugin.check_temperature(:host =>Choice.choices[:host], :type =>Choice.choices[:type])
+
+puts tr.inspect if Choice.choices[:debug]
+
+Kernel.exit(SNMPCheck::Thresholds.status(tr, Choice.choices[:warning], Choice.choices[:critical]))
