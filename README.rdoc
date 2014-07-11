@@ -1,6 +1,6 @@
 = snmp_temperature_check
 
-Description goes here.
+SMTP temperature check for IBM Blade serie X.
 
 == Contributing to snmp_temperature_check
  
